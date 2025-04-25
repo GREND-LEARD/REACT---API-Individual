@@ -1,0 +1,59 @@
+.filter-screen-container {
+  padding: 20px;
+}
+
+.filter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre grupos de filtros */
+  max-width: 400px; /* Limitar ancho para mejor lectura */
+  margin: 0 auto; /* Centrar los controles */
+  text-align: left;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Espacio entre label y select */
+}
+
+.filter-group label {
+  font-weight: bold;
+}
+
+.filter-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.apply-filters-button {
+  padding: 12px 25px; /* Más padding horizontal */
+  background-color: #646cff; /* Color primario (ajustar si prefieres otro) */
+  color: white;
+  border: none;
+  border-radius: 6px; /* Un poco menos redondo */
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500; /* Igual que otros botones */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 10px;
+  align-self: center; /* Centrar el botón */
+}
+
+.apply-filters-button:hover {
+  background-color: #535bf2; /* Ligeramente más oscuro */
+}
+
+.apply-filters-button:active {
+    transform: scale(0.98);
+}
+
+/* Reutilizar la clase de error de HomeScreen.css si se importó globalmente
+   o definirla aquí también si es necesario */
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 10px;
+} 

@@ -1,0 +1,55 @@
+.trivia-list {
+  padding: 0; /* Quitar padding por defecto de ul */
+  margin: 0;
+}
+
+.error-message {
+  color: #dc3545; /* Un rojo estándar para errores */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Puedes añadir más estilos específicos para HomeScreen aquí */
+
+.home-screen-container {
+    /* Estilos existentes */
+}
+
+/* Contenedor para H1 y botón */
+.header-controls {
+    display: flex;
+    justify-content: space-between; /* Separa título y botón */
+    align-items: center; /* Alinea verticalmente */
+    margin-bottom: 1.5rem; /* Espacio debajo como tenía el H1 */
+    flex-wrap: wrap; /* Permitir que el botón baje si no cabe */
+    gap: 10px;
+}
+
+.header-controls h1 {
+    margin-bottom: 0; /* Quitar margen inferior del H1 aquí */
+}
+
+.refresh-button {
+    padding: 8px 15px;
+    background-color: #17a2b8; /* Color cian/info */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.refresh-button:hover {
+    background-color: #138496;
+}
+
+.refresh-button:active {
+    transform: scale(0.98);
+}
+
+.refresh-button:disabled {
+    background-color: #5c636a;
+    cursor: not-allowed;
+} 
