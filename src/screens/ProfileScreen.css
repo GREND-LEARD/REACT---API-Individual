@@ -1,0 +1,96 @@
+.profile-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: #333;
+}
+
+.profile-info {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile-item {
+  display: flex;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.profile-label {
+  font-weight: 600;
+  width: 150px;
+  color: #555;
+}
+
+.profile-value {
+  flex: 1;
+}
+
+.profile-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.profile-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  background-color: #646cff;
+  color: white;
+}
+
+.profile-button:hover {
+  background-color: #535bf2;
+}
+
+.profile-button:active {
+  transform: scale(0.98);
+}
+
+.logout-button {
+  background-color: #dc3545;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.profile-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 2rem 0;
+}
+
+.change-password-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.change-password-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5em; /* Ajustar según sea necesario */
+  color: #444;
+}
+
+/* Para que el formulario de perfil ocupe el ancho disponible */
+.profile-form {
+    margin-top: 1rem; /* Ajustar el margen superior si es necesario */
+}
+
+/* Ajustes para mensajes de error y éxito dentro de profile */
+.profile-container .success-message,
+.profile-container .auth-error {
+    margin-bottom: 1rem; /* Espacio antes del formulario */
+} 
