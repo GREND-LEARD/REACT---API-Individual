@@ -8,23 +8,91 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--bg-main); /* Usar el fondo oscuro */
+  color: var(--text-primary);
 }
 
 .content {
   flex-grow: 1;
   padding: 1rem;
-  padding-bottom: 70px;
+  padding-bottom: 120px; /* Aumentado para acomodar ambas barras */
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
 }
 
+/* Estilos para tarjetas y elementos comunes */
+.card {
+  background: var(--bg-card); /* Fondo de tarjeta oscuro */
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilos para botones */
+button {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5a52d5;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background-color: #444444;
+  cursor: not-allowed;
+}
+
+/* Estilos para campos de formulario */
+input, select, textarea {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: #2a2a2a;
+  color: var(--text-primary);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+/* Para mantener la compatibilidad con estilos existentes */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #6c63ffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -44,10 +112,20 @@
   }
 }
 
-.card {
-  padding: 2em;
+.read-the-docs {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .content {
+    padding: 0.8rem;
+    padding-bottom: 80px;
+  }
+  
+  .card {
+    padding: 1.2rem;
+  }
 }

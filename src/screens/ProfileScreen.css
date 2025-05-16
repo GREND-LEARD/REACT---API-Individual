@@ -3,9 +3,10 @@
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  color: #333;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 .profile-info {
@@ -18,18 +19,20 @@
 .profile-item {
   display: flex;
   padding: 1rem;
-  background-color: #f8f9fa;
+  background-color: #1a1a2e;
   border-radius: 8px;
+  border: 1px solid #2a2a42;
 }
 
 .profile-label {
   font-weight: 600;
   width: 150px;
-  color: #555;
+  color: var(--text-secondary);
 }
 
 .profile-value {
   flex: 1;
+  color: var(--text-primary);
 }
 
 .profile-actions {
@@ -69,7 +72,7 @@
 
 .profile-divider {
   border: none;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
   margin: 2rem 0;
 }
 
@@ -80,17 +83,47 @@
 
 .change-password-section h2 {
   margin-bottom: 1.5rem;
-  font-size: 1.5em; /* Ajustar según sea necesario */
-  color: #444;
+  font-size: 1.5em;
+  color: var(--text-primary);
 }
 
 /* Para que el formulario de perfil ocupe el ancho disponible */
 .profile-form {
-    margin-top: 1rem; /* Ajustar el margen superior si es necesario */
+  margin-top: 1rem;
 }
 
 /* Ajustes para mensajes de error y éxito dentro de profile */
 .profile-container .success-message,
 .profile-container .auth-error {
-    margin-bottom: 1rem; /* Espacio antes del formulario */
+  margin-bottom: 1rem;
+}
+
+/* Asegurar que los campos sean oscuros y bien alineados */
+.profile-container input {
+  background-color: #2a2a2a;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box; /* Incluir el padding en el ancho total */
+}
+
+.profile-container input:focus {
+  border-color: #646cff;
+  background-color: #333333;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.15);
+}
+
+.profile-container .form-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.profile-container .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: left;
 } 

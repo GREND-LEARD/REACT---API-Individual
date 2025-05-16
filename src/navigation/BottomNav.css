@@ -3,28 +3,61 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #f0f0f0; /* Un color de fondo simple */
-  border-top: 1px solid #ccc;
+  background-color: #1a1a2e; /* Mantener el fondo oscuro moderno */
+  border-top: 1px solid #2a2a42;
   display: flex;
-  justify-content: space-around; /* Distribuye el espacio */
+  justify-content: space-around;
   padding: 10px 0;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }
 
-.bottom-nav a {
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-decoration: none;
-  color: #333;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  color: #a0a0a0; /* Color de texto apagado para los no activos */
+  padding: 8px 0;
+  width: 16%; /* Distribuir equitativamente */
+  transition: all 0.3s ease;
 }
 
-.bottom-nav a:hover {
-  background-color: #e0e0e0;
+.nav-icon {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.nav-text {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  color: #f0f0f0;
 }
 
 /* Estilo para el enlace activo */
-.bottom-nav a.active {
-  background-color: #007bff; /* Azul brillante */
-  color: white;
-  font-weight: bold;
+.nav-item.active {
+  color: #6c63ff; /* Color principal vibrante */
+  position: relative;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background-color: #6c63ff;
+  border-radius: 50%;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 380px) {
+  .nav-text {
+    font-size: 0.65rem;
+  }
 } 

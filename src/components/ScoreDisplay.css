@@ -1,13 +1,106 @@
 .score-display {
   position: fixed;
-  bottom: 60px; /* Ajusta esto según la altura de tu BottomNav */
+  bottom: 60px; /* Ajustado para dejar espacio para la barra de navegación */
   left: 0;
   width: 100%;
-  background-color: #1a1a1a; /* Fondo oscuro ligeramente diferente */
+  background-color: #1a1a2e; /* Mismo fondo que la barra de navegación */
   color: #eee;
-  padding: 8px 0;
+  padding: 10px 0;
   text-align: center;
-  font-size: 0.9em;
-  border-top: 1px solid #444;
-  z-index: 99; /* Asegurar que esté sobre el contenido pero debajo del Nav? */
+  border-top: 1px solid #2a2a42;
+  z-index: 99;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.score-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.score-trophy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.trophy-icon {
+  font-size: 1.8rem;
+  color: #ffd700; /* Color dorado */
+  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.5));
+  margin-bottom: 4px;
+}
+
+.score-value {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.score-details {
+  flex: 1;
+  max-width: 400px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  transition: width 0.5s ease-in-out;
+  border-radius: 4px;
+}
+
+.score-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stat.correct {
+  color: #4caf50; /* Verde */
+}
+
+.stat.incorrect {
+  color: #f44336; /* Rojo */
+}
+
+.stat.total {
+  color: #9e9e9e; /* Gris */
+}
+
+/* Media query para ajustar en pantallas pequeñas */
+@media (max-width: 480px) {
+  .score-trophy {
+    margin-right: 10px;
+  }
+  
+  .trophy-icon {
+    font-size: 1.5rem;
+  }
+  
+  .score-value {
+    font-size: 1rem;
+  }
+  
+  .score-stats {
+    font-size: 0.7rem;
+  }
 } 

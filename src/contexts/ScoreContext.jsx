@@ -1,41 +1,46 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-// 1. Crear Contexto
+// Crear contexto
 const ScoreContext = createContext();
 
-// Hook personalizado
-export const useScore = () => {
+// Hook personalizado para usar el contexto
+export function useScore() {
   return useContext(ScoreContext);
-};
+}
 
-// 2. Crear Provider
-export const ScoreProvider = ({ children }) => {
+// Proveedor del contexto
+export function ScoreProvider({ children }) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [totalAnswered, setTotalAnswered] = useState(0);
 
-  // Función para incrementar la puntuación
+  // Incrementar aciertos
   const incrementScore = () => {
-    setCorrectAnswers(prevScore => prevScore + 1);
-    setTotalAnswered(prevTotal => prevTotal + 1);
+    setCorrectAnswers(prev => prev + 1);
+    setTotalAnswered(prev => prev + 1);
   };
 
-  // Función para registrar una respuesta incorrecta (solo incrementa el total)
+  // Registrar respuestas incorrectas
   const recordIncorrectAnswer = () => {
-    setTotalAnswered(prevTotal => prevTotal + 1);
+    setIncorrectAnswers(prev => prev + 1);
+    setTotalAnswered(prev => prev + 1);
   };
 
-  // Función para resetear (opcional, por si queremos un botón de reinicio)
+  // Reset score
   const resetScore = () => {
     setCorrectAnswers(0);
+    setIncorrectAnswers(0);
     setTotalAnswered(0);
   };
 
+  // Valor que proveeremos al contexto
   const value = {
     correctAnswers,
+    incorrectAnswers,
     totalAnswered,
     incrementScore,
     recordIncorrectAnswer,
-    resetScore,
+    resetScore
   };
 
   return (
@@ -43,4 +48,4 @@ export const ScoreProvider = ({ children }) => {
       {children}
     </ScoreContext.Provider>
   );
-}; 
+} 
