@@ -6,7 +6,11 @@ const AuthContext = createContext();
 
 // Hook personalizado para acceder al contexto
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth debe ser usado dentro de un AuthProvider');
+  }
+  return context;
 };
 
 // Provider del contexto
@@ -19,43 +23,44 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     console.log('Inicializando Auth Provider');
 
-    // Verificar si hay una sesión inicial
-    const checkUser = async () => {
+    // Verificar la conexión con Supabase
+    const checkConnection = async () => {
       try {
-        console.log('Verificando usuario...');
-        setLoading(true);
-        
-        const { data, error } = await supabase.auth.getSession();
-        
-        if (error) {
-          console.error('Error al verificar sesión:', error.message);
-          throw error;
-        }
-        
-        console.log('Sesión obtenida:', data.session ? 'Existe' : 'No existe');
-        const initialUser = data.session ? data.session.user : null;
-        setUser(initialUser);
-        
-      } catch (error) {
-        console.error('Error en checkUser:', error);
-        setError(error.message);
+        const { data, error } = await supabase.from('profiles').select('count').limit(1);
+        if (error) throw error;
+      } catch (err) {
+        console.error('Error de conexión con Supabase:', err);
+        setError('Error de conexión con la base de datos. Por favor, verifica tu conexión a internet.');
+      }
+    };
+
+    checkConnection();
+
+    // Obtener sesión actual
+    const getSession = async () => {
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) throw error;
+        setUser(session?.user ?? null);
+      } catch (err) {
+        console.error('Error al obtener la sesión:', err);
+        setError('Error al cargar la sesión. Por favor, intenta recargar la página.');
       } finally {
         setLoading(false);
       }
     };
-    
-    // Ejecutar verificación inicial
-    checkUser();
-    
-    // Suscribirse a los cambios de auth
-    const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('Cambio de estado de autenticación:', event);
-      setUser(session?.user || null);
+
+    getSession();
+
+    // Escuchar cambios en la autenticación
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
     });
-    
+
     // Cleanup
     return () => {
-      data?.subscription?.unsubscribe();
+      subscription?.unsubscribe();
     };
   }, []);
 

@@ -39,16 +39,16 @@ const PrivateRoute = ({ children }) => {
 function App() {
   return (
     <AuthProvider>
-      <FavoritesProvider>
-        <ScoreProvider>
-          <div className="app-container"> {/* Contenedor principal */}
-            <main className="content"> {/* Área para el contenido de la pantalla */}
-              <Routes>
+    <FavoritesProvider>
+      <ScoreProvider>
+        <div className="app-container"> {/* Contenedor principal */}
+          <main className="content"> {/* Área para el contenido de la pantalla */}
+            <Routes>
                 <Route path="/login" element={<LoginScreen />} />
                 <Route path="/register" element={<RegisterScreen />} />
-                <Route path="/" element={<HomeScreen />} />
-                <Route path="/filter" element={<FilterScreen />} />
-                <Route path="/search" element={<SearchScreen />} />
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/filter" element={<FilterScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
                 <Route path="/favorites" element={
                   <PrivateRoute>
                     <FavoritesScreen />
@@ -64,14 +64,14 @@ function App() {
                     <ProfileScreen />
                   </PrivateRoute>
                 } />
-                <Route path="/settings" element={<SettingsScreen />} />
-              </Routes>
-            </main>
-            <ScoreDisplay />
-            <BottomNav /> {/* El menú de navegación siempre visible */}
-          </div>
-        </ScoreProvider>
-      </FavoritesProvider>
+              <Route path="/settings" element={<SettingsScreen />} />
+            </Routes>
+          </main>
+          <ScoreDisplay />
+          <BottomNav /> {/* El menú de navegación siempre visible */}
+        </div>
+      </ScoreProvider>
+    </FavoritesProvider>
     </AuthProvider>
   );
 }
